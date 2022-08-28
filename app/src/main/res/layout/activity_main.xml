@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_getWeatherByCityName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="15dp"
+        android:backgroundTint="#88292929"
+        android:fontFamily="@font/dmmedium"
+        android:text="Fetch weather by Name"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_getWeatherByCityName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:startIconDrawable="@drawable/info"
+        tools:layout_editor_absoluteY="64dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_cityNameOrIdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dmmedium"
+            android:hint="Enter city Name / ID" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="170dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_cityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dmbold"
+                android:textSize="20dp"
+                android:layout_alignParentTop="true"
+                android:text="- - - -" />
+
+            <TextView
+                android:id="@+id/tv_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_cityName"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/dmmedium"
+                android:text="- - - - - - - - - -" />
+
+            <TextView
+                android:id="@+id/tv_dayNight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/dmmedium"
+                android:text="--"
+                android:textSize="20dp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_celsius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_tempCelsius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/dmmedium"
+                    android:text="--"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@id/degSymb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tv_tempCelsius"
+                    android:layout_toEndOf="@+id/tv_tempCelsius"
+                    android:fontFamily="@font/dmregular"
+                    android:text="°"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tv_tempCelsius"
+                    android:layout_toRightOf="@+id/degSymb"
+                    android:fontFamily="@font/dmregular"
+                    android:text="c"
+                    android:textSize="25sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_toRightOf="@+id/rl_celsius">
+
+                <TextView
+                    android:id="@+id/tv_tempFahrenheit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dmmedium"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:text="--"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@id/degSymb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dmregular"
+                    android:layout_alignTop="@id/tv_tempFahrenheit"
+                    android:layout_toEndOf="@+id/tv_tempFahrenheit"
+                    android:text="°"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dmregular"
+                    android:layout_alignTop="@id/tv_tempFahrenheit"
+                    android:layout_toRightOf="@+id/degSymb"
+                    android:text="f"
+                    android:textSize="25sp" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:visibility="invisible"
+                android:id="@+id/weatherIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/question" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WeatherAPI"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/dmregular"
+                android:textSize="12dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:textColor="#787878"/>
+
+            <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="20dp"/>
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_currentWeatherCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dmmedium"
+        android:layout_marginBottom="16dp"
+        android:text="Please enter a city name above"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
